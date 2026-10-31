@@ -1,39 +1,52 @@
-# 🚀 Projet de Soutenance
+# Dassa Tourisme
 
-Bienvenue sur le dépôt de mon application web. Ce projet sert de base pour le développement d'une application moderne et performante en React.
+Landing page touristique pour découvrir Dassa-Zoumé, ses paysages, son patrimoine et ses circuits.
 
----
+## Stack
 
-## 🛠️ Stack Technique
+- React 19
+- Vite
+- JavaScript / JSX
+- CSS natif
+- Oxlint
 
-- **Frontend :** [React](https://react.dev/) (v18+)
-- **Build Tool / Serveur Dev :** [Vite](https://vitejs.dev/)
-- **Langage :** JavaScript (ES6+)
-- **Gestionnaire de paquets :** npm
-- **Linter :** Oxlint
-- **Gestion de version :** Git & GitHub
-
----
-
-## 📂 Arborescence du Projet
+## Organisation
 
 ```text
-projet-de-soutenance/
-├── node_modules/          # Dépendances du projet (ignoré par Git)
-├── public/                # Fichiers statiques publics (favicon, logos)
-│   └── vite.svg
-├── src/                   # Code source de l'application
-│   ├── assets/            # Images, icônes, illustrations
-│   ├── components/        # Composants UI réutilisables (Boutons, Cards...)
-│   ├── pages/             # Pages principales de l'application
-│   ├── services/          # Appels API et logique métier
-│   ├── styles/            # Fichiers CSS globaux
-│   ├── App.css            # Styles du composant principal
-│   ├── App.jsx            # Composant racine React
-│   ├── index.css          # Styles globaux et réinitialisations
-│   └── main.jsx           # Point d'entrée principal (ReactDOM)
-├── .gitignore             # Fichiers et dossiers ignorés par Git
-├── index.html             # Fichier HTML principal
-├── package.json           # Scripts npm et dépendances
-├── README.md              # Documentation du projet
-└── vite.config.js         # Configuration de Vite
+src/
+├── components/
+│   ├── common/          # Éléments UI partagés
+│   └── layout/          # Header et footer
+├── context/             # État partagé, dont la langue active
+├── data/                # Données mockées
+├── i18n/                # Traductions françaises et anglaises
+├── pages/               # Pages applicatives
+├── styles/              # Tokens, styles globaux et styles de page
+├── App.jsx              # Composition principale de l’application
+└── main.jsx             # Point d’entrée React
+```
+
+## Fonctionnalités actuelles
+
+- Landing page Dassa Tourisme fidèle à la maquette de référence
+- Navigation vers les différentes sections de la page
+- Menu responsive sur mobile
+- Changement de langue français / anglais
+- Circuits affichés depuis des données mockées
+- Page catalogue `/circuits` avec filtres et tri
+- Slider hero animé avec navigation circulaire et aperçus
+- Mise en page responsive desktop, tablette et mobile
+
+## Développement
+
+```bash
+npm install
+npm run dev
+```
+
+## Vérification
+
+```bash
+npm run lint
+npm run build
+```
