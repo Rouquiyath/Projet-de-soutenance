@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { Icon } from '../common/Icon'
 
 const defaultSlides = [
   {
@@ -42,7 +41,6 @@ const defaultSlides = [
 
 export function HeroSlider({ slides = defaultSlides, labels }) {
   const [items, setItems] = useState(slides)
-  const [controlsVisible, setControlsVisible] = useState(false)
 
   useEffect(() => {
     const images = slides.map((slide) => {
@@ -54,18 +52,10 @@ export function HeroSlider({ slides = defaultSlides, labels }) {
     return () => images.forEach((image) => image.onload = null)
   }, [slides])
 
-  const next = () => {
-    setItems((current) => [...current.slice(1), current[0]])
-  }
-
-  const previous = () => {
-    setItems((current) => [current[current.length - 1], ...current.slice(0, -1)])
-  }
-
   useEffect(() => {
     const timerId = window.setInterval(() => {
       setItems((current) => [...current.slice(1), current[0]])
-    }, 10000)
+    }, 5000)
 
     return () => window.clearInterval(timerId)
   }, [])
@@ -83,35 +73,21 @@ export function HeroSlider({ slides = defaultSlides, labels }) {
               index === 1 ? 'hero-slide-active' : '',
             ].filter(Boolean).join(' ')}
             key={item.id}
-            onMouseEnter={() => index >= 2 && index < 5 && setControlsVisible(true)}
-            onMouseLeave={() => index >= 2 && index < 5 && setControlsVisible(false)}
             style={{ backgroundImage: `url("${item.image}")` }}
           >
             <div className="hero-slide-overlay" />
-            {index === 1 && (
-              <div className="hero-slide-content">
-                <p className="eyebrow">Dassa Tourisme</p>
-                <h1>{item.title}</h1>
-                <p className="hero-slide-description">{item.description}</p>
-                <a className="button" href="#circuits">
-                  {labels.discover} <Icon name="arrow" size={16} />
-                </a>
-              </div>
-            )}
           </article>
         ))}
       </div>
-      <div
-        className={`hero-slider-controls${controlsVisible ? ' is-visible' : ''}`}
-        onMouseEnter={() => setControlsVisible(true)}
-        onMouseLeave={() => setControlsVisible(false)}
-      >
-        <button type="button" aria-label={labels.previous} onClick={previous}>
-          <span>‹</span>
-        </button>
-        <button type="button" aria-label={labels.next} onClick={next}>
-          <span>›</span>
-        </button>
+      <div className="hero-slide-content">
+        <p className="hero-slide-kicker">DASSA-ZOUMÉ <span>•</span> BÉNIN</p>
+        <h1>{labels.titlePrefix} <span>{labels.titleAccent}</span></h1>
+        <p className="hero-slide-subtitle">{labels.subtitle}</p>
+        <div className="hero-slide-actions">
+          <a className="button" href="#circuits">{labels.discover}</a>
+          <a className="button button-outline" href="#contact">{labels.book}</a>
+        </div>
+        <p className="hero-slide-description">{labels.description}</p>
       </div>
     </div>
   )

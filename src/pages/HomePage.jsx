@@ -12,9 +12,12 @@ export function HomePage() {
       <section className="hero-section" id="top">
         <HeroSlider
           labels={{
+            titlePrefix: t.hero.titlePrefix,
+            titleAccent: t.hero.titleAccent,
+            subtitle: t.hero.subtitle,
             discover: t.hero.discover,
-            next: 'Slide suivante',
-            previous: 'Slide précédente',
+            book: t.hero.book,
+            description: t.hero.description,
           }}
         />
       </section>

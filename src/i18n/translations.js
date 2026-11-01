@@ -10,7 +10,8 @@ export const translations = {
       reserve: 'Réserver',
     },
     hero: {
-      title: 'Découvrez Dassa-Zoumé',
+      titlePrefix: 'Découvrez',
+      titleAccent: 'Dassa-Zoumé',
       subtitle: 'Une destination authentique entre nature, culture et traditions',
       discover: 'Découvrir les circuits',
       book: 'Réserver un circuit',
@@ -236,7 +237,8 @@ export const translations = {
       reserve: 'Book now',
     },
     hero: {
-      title: 'Discover Dassa-Zoumé',
+      titlePrefix: 'Discover',
+      titleAccent: 'Dassa-Zoumé',
       subtitle: 'An authentic destination between nature, culture and traditions',
       discover: 'Discover the tours',
       book: 'Book a tour',
