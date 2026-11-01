@@ -26,10 +26,16 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
   color: var(--white);
   text-decoration: none;
   white-space: nowrap;
+}
+
+.brand-logo {
+  display: block;
+  width: 58px;
+  height: 54px;
+  object-fit: contain;
 }
 
 .brand-mark {
@@ -54,7 +60,7 @@
 }
 
 .brand small {
-  font-size: 8px;
+  font-size: var(--text-min);
   letter-spacing: .18em;
 }
 
@@ -110,7 +116,7 @@
 
 .language-switcher span {
   color: currentColor;
-  font-size: 12px;
+  font-size: var(--text-min);
 }
 
 .menu-toggle {
@@ -231,7 +237,7 @@
   gap: 9px;
   margin: 0 0 20px;
   color: var(--accent-lime);
-  font-size: 12px;
+  font-size: var(--text-min);
   font-weight: 800;
   letter-spacing: .16em;
   line-height: 1;
@@ -240,7 +246,7 @@
 
 .hero-slide-kicker span {
   color: rgba(255,255,255,.55);
-  font-size: 10px;
+  font-size: var(--text-min);
 }
 
 .hero-slide-content h1 {
@@ -483,7 +489,7 @@
   margin: 0 0 4px;
   color: #d3f000;
   font-family: var(--mono);
-  font-size: 13px;
+  font-size: var(--text-min);
   font-weight: 700;
   line-height: 1.45;
   text-align: right;
@@ -537,7 +543,7 @@
   border-radius: 999px;
   color: #00251b;
   background: #d3f000;
-  font-size: 10px;
+  font-size: var(--text-min);
   font-weight: 800;
   letter-spacing: .06em;
   line-height: 1;
@@ -571,7 +577,7 @@
   padding-top: 24px;
   color: #d3f000;
   font-family: var(--mono);
-  font-size: 12px;
+  font-size: var(--text-min);
   font-weight: 700;
 }
 
@@ -633,7 +639,7 @@
   border-radius: 3px;
   color: var(--white);
   background: rgba(8,87,37,.9);
-  font-size: 11px;
+  font-size: var(--text-min);
   font-weight: 700;
 }
 
@@ -720,7 +726,7 @@
   max-width: 250px;
   margin: 18px 0 0;
   color: rgba(255,255,255,.75);
-  font-size: 12px;
+  font-size: var(--text-min);
   line-height: 1.55;
 }
 
@@ -746,6 +752,13 @@
   background: var(--white);
 }
 
+.footer-logo {
+  display: block;
+  width: 82px;
+  height: 66px;
+  object-fit: contain;
+}
+
 .footer-grid {
   display: grid;
   grid-template-columns: 1.35fr .9fr .9fr 1.05fr 1.35fr;
@@ -754,12 +767,6 @@
 
 .brand-light {
   color: var(--green-800);
-}
-
-.brand-wordmark {
-  font-size: 28px;
-  font-weight: 800;
-  letter-spacing: -.06em;
 }
 
 .footer-brand p {
@@ -775,7 +782,7 @@
   gap: 12px;
   margin: 4px 0 22px;
   color: #c1c9c4;
-  font-size: 12px;
+  font-size: var(--text-min);
   letter-spacing: .1em;
   text-transform: uppercase;
 }
@@ -817,7 +824,7 @@
 
 .numbered-links li > span {
   color: #b4c6b8;
-  font-size: 10px;
+  font-size: var(--text-min);
 }
 
 .footer-links a:hover,
@@ -832,7 +839,7 @@
 .footer-contact strong {
   margin-top: 6px;
   color: #8d9890;
-  font-size: 10px;
+  font-size: var(--text-min);
 }
 
 .social-links {
@@ -849,7 +856,7 @@
   border-radius: 50%;
   color: var(--white);
   background: rgba(255,255,255,.13);
-  font-size: 10px;
+  font-size: var(--text-min);
   text-decoration: none;
 }
 
@@ -874,7 +881,7 @@
 .newsletter-card p {
   margin: 0 0 20px;
   color: #789080;
-  font-size: 13px;
+  font-size: var(--text-min);
   line-height: 1.45;
 }
 
@@ -895,7 +902,7 @@
   outline: 0;
   color: var(--ink);
   background: transparent;
-  font-size: 12px;
+  font-size: var(--text-min);
 }
 
 .newsletter-form button {
@@ -905,7 +912,7 @@
   border-radius: 22px;
   color: var(--white);
   background: var(--green-800);
-  font-size: 11px;
+  font-size: var(--text-min);
   font-weight: 700;
   cursor: pointer;
 }
@@ -914,22 +921,60 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 68px;
-  margin-top: 18px;
-  padding: 0 36px;
+  min-height: 82px;
+  margin-top: 24px;
+  padding: 0 42px;
   border-radius: 40px;
   color: rgba(255,255,255,.72);
   background: var(--green-800);
-  font-size: 10px;
+  font-size: var(--text-min);
+  font-weight: 500;
+}
+
+.footer-bottom-bar > span {
+  color: rgba(255,255,255,.86);
+}
+
+.footer-wordmark {
+  overflow: hidden;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  width: min(100% - 32px, 1360px);
+  padding: 2px 0 0;
+  color: #d6e8da;
+  font-size: clamp(54px, 11vw, 170px);
+  font-weight: 900;
+  line-height: .78;
+  white-space: nowrap;
 }
 
 .footer-bottom-bar .social-links {
-  gap: 10px;
+  gap: 12px;
+}
+
+.footer-bottom-bar .social-links a {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 50%;
+  color: var(--white);
+  background: rgba(255,255,255,.1);
+  transition: background .25s ease, border-color .25s ease, transform .25s ease;
+}
+
+.footer-bottom-bar .social-links a:hover {
+  border-color: var(--accent-lime);
+  background: var(--green-950);
+  transform: translateY(-2px);
 }
 
 .footer-legal {
   display: flex;
-  gap: 25px;
+  gap: 30px;
+  font-size: var(--text-min);
 }
 
 .footer-legal a {
@@ -984,7 +1029,7 @@
 .sort-control {
   gap: 9px;
   color: var(--muted);
-  font-size: 12px;
+  font-size: var(--text-min);
 }
 
 .catalog-toolbar select {
@@ -995,7 +1040,7 @@
   border-radius: 5px;
   color: #647069;
   background-color: var(--white);
-  font-size: 12px;
+  font-size: var(--text-min);
   cursor: pointer;
 }
 
@@ -1036,7 +1081,7 @@
   border-radius: 4px;
   color: var(--white);
   background: rgba(8,87,37,.9);
-  font-size: 9px;
+  font-size: var(--text-min);
   font-weight: 700;
 }
 
@@ -1055,7 +1100,7 @@
   min-height: 34px;
   margin: 0 0 14px;
   color: var(--muted);
-  font-size: 11px;
+  font-size: var(--text-min);
   line-height: 1.5;
 }
 
@@ -1065,7 +1110,7 @@
   justify-content: space-between;
   margin-bottom: 14px;
   color: #7d8880;
-  font-size: 11px;
+  font-size: var(--text-min);
 }
 
 .catalog-card-meta span {
@@ -1081,7 +1126,7 @@
 
 .catalog-card-meta small {
   color: #9da69f;
-  font-size: 9px;
+  font-size: var(--text-min);
   font-weight: 400;
 }
 
@@ -1093,7 +1138,7 @@
   border-radius: 4px;
   color: var(--white);
   background: var(--green-800);
-  font-size: 11px;
+  font-size: var(--text-min);
   font-weight: 700;
   text-decoration: none;
   transition: background .2s;
@@ -1227,7 +1272,7 @@
     right: -8px;
     width: 105px;
     height: 105px;
-    font-size: 13px;
+    font-size: var(--text-min);
   }
 
   .about-copy h2 {

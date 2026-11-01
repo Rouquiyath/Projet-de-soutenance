@@ -100,13 +100,13 @@ button {
 .button-small {
   min-height: 42px;
   padding-inline: 23px;
-  font-size: 12px;
+  font-size: var(--text-min);
 }
 
 .eyebrow {
   margin: 0 0 15px;
   color: var(--green-800);
-  font-size: 14px;
+  font-size: var(--text-min);
   font-weight: 700;
   letter-spacing: .03em;
   text-transform: uppercase;

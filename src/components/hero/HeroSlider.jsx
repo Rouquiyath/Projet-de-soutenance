@@ -80,7 +80,7 @@ export function HeroSlider({ slides = defaultSlides, labels }) {
         ))}
       </div>
       <div className="hero-slide-content">
-        <p className="hero-slide-kicker">DASSA-ZOUMÉ <span>•</span> BÉNIN</p>
+        <p className="hero-slide-kicker">VISIT DASSA <span>•</span> BÉNIN</p>
         <h1>{labels.titlePrefix} <span>{labels.titleAccent}</span></h1>
         <p className="hero-slide-subtitle">{labels.subtitle}</p>
         <div className="hero-slide-actions">

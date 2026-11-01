@@ -32,6 +32,24 @@ export function Icon({ name, size = 20 }) {
         <circle cx="12" cy="10" r="2" />
       </>
     ),
+    facebook: (
+      <>
+        <path d="M14 8h2V5.5h-2c-2.2 0-3.5 1.3-3.5 3.7V11H8v2.5h2.5V19H13v-5.5h2.2L15.6 11H13V9.5c0-.9.3-1.5 1-1.5Z" fill="currentColor" stroke="none" />
+      </>
+    ),
+    instagram: (
+      <>
+        <rect x="4" y="4" width="16" height="16" rx="4" />
+        <circle cx="12" cy="12" r="3.5" />
+        <circle cx="17.3" cy="6.8" r=".8" fill="currentColor" stroke="none" />
+      </>
+    ),
+    whatsapp: (
+      <>
+        <path d="M5 19l1.2-3A7.5 7.5 0 1 1 8 18.2L5 19Z" />
+        <path d="M9.3 9.5c.2-.5.4-.6.7-.6h.6c.2 0 .4.1.5.4l.6 1.4c.1.2.1.4-.1.6l-.6.6c.5 1 1.3 1.8 2.4 2.3l.7-.6c.2-.2.4-.2.6-.1l1.4.6c.3.1.4.3.3.6-.2.8-.8 1.3-1.6 1.3-2.1-.1-5.6-3.1-6-5.4-.1-.4.1-.8.5-1.1Z" />
+      </>
+    ),
   }
 
   return (

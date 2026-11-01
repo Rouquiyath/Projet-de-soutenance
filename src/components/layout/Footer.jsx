@@ -1,6 +1,8 @@
 import { socialLinks } from '../../data/mockData'
+import { Icon } from '../common/Icon'
 import { useLanguage } from '../../context/useLanguage'
 import { getTranslation } from '../../i18n/translations'
+import logo from '../../assets/Images/Logo.svg'
 
 export function Footer() {
   const { language } = useLanguage()
@@ -11,8 +13,8 @@ export function Footer() {
       <div className="container footer-panel">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a className="brand brand-light" href="#top">
-              <span className="brand-wordmark">Dassa.</span>
+            <a className="brand brand-light" href="#top" aria-label="Visit Dassa">
+              <img className="footer-logo" src={logo} alt="Visit Dassa" />
             </a>
             <p>{t.footer.description}</p>
           </div>
@@ -49,11 +51,18 @@ export function Footer() {
           </div>
         </div>
       </div>
+      <div className="container footer-wordmark" aria-hidden="true">
+        {'VISIT DASSA'.split('').map((character, index) => (
+          <span key={`${character}-${index}`}>{character === ' ' ? '\u00a0' : character}</span>
+        ))}
+      </div>
       <div className="container footer-bottom-bar">
         <span>{t.footer.rights}</span>
         <div className="social-links">
           {socialLinks.map((social) => (
-            <a href={social.href} aria-label={social.label} key={social.label}>{social.shortLabel}</a>
+            <a href={social.href} aria-label={social.label} key={social.label}>
+              <Icon name={social.icon} size={18} />
+            </a>
           ))}
         </div>
         <div className="footer-legal">

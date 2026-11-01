@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Icon } from '../common/Icon'
 import { useLanguage } from '../../context/useLanguage'
 import { getTranslation } from '../../i18n/translations'
+import logo from '../../assets/Images/Logo.svg'
 
 export function Header() {
   const { language, toggleLanguage } = useLanguage()
@@ -20,12 +21,8 @@ export function Header() {
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="container header-inner">
-        <a className="brand" href="#top" aria-label="Dassa Tourisme">
-          <span className="brand-mark">▲</span>
-          <span>
-            <strong>DASSA</strong>
-            <small>TOURISME</small>
-          </span>
+        <a className="brand" href="#top" aria-label="Visit Dassa">
+          <img className="brand-logo" src={logo} alt="Visit Dassa" />
         </a>
         <button
           className="menu-toggle"
