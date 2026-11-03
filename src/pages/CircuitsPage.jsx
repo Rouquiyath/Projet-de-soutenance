@@ -41,7 +41,7 @@ export function CircuitsPage() {
       <section className="catalog-section">
         <div className="container">
           <div className="catalog-toolbar">
-            <p className="catalog-result">{circuits.length} {t.catalog.resultLabel}</p>
+            <p className="catalog-result" aria-live="polite">{circuits.length} {t.catalog.resultLabel}</p>
             <div className="filter-group">
               <label>
                 <span className="sr-only">{t.catalog.category}</span>
@@ -62,6 +62,9 @@ export function CircuitsPage() {
                   <option value="3">3 {t.catalog.days}</option>
                 </select>
               </label>
+              <button className="filter-reset" type="button" onClick={() => { setCategory('all'); setDuration('all'); setSort('default') }}>
+                {t.catalog.reset}
+              </button>
             </div>
             <label className="sort-control">
               <span className="sort-label">{t.catalog.sortBy}</span>
@@ -74,13 +77,13 @@ export function CircuitsPage() {
           </div>
 
           <div className="catalog-grid">
-            {circuits.map((circuit, index) => (
+            {circuits.length > 0 ? circuits.map((circuit, index) => (
               <article className="catalog-card" key={circuit.title}>
                 <div className="catalog-card-image">
-                  <img src={circuit.image} alt="" />
+                  <img src={circuit.image} alt={circuit.title} loading="lazy" />
                   <span className="catalog-card-label">{circuit.label}</span>
-                  <span className="catalog-card-index">{String(index + 1).padStart(2, '0')}</span>
                 </div>
+                <span className="catalog-card-index">{String(index + 1).padStart(2, '0')}</span>
                 <div className="catalog-card-content">
                   <h2>{circuit.title}</h2>
                   <p>{circuit.description}</p>
@@ -88,15 +91,16 @@ export function CircuitsPage() {
                     <span><Icon name="clock" size={15} /> {circuit.duration}</span>
                     <strong>{circuit.price} <small>FCFA</small></strong>
                   </div>
-                  <a className="catalog-card-button" href="/#contact">
+                  <a className="catalog-card-button" href="/reserver">
                     {t.catalog.details} <Icon name="arrow" size={15} />
                   </a>
                 </div>
               </article>
-            ))}
+            )) : <p className="catalog-empty">{t.catalog.noResults}</p>}
           </div>
         </div>
       </section>
+
     </>
   )
 }

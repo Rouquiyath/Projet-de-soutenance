@@ -28,26 +28,27 @@ export function Header() {
           className="menu-toggle"
           type="button"
           aria-expanded={menuOpen}
-          aria-label="Open menu"
+          aria-controls="primary-navigation"
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
           onClick={() => setMenuOpen((open) => !open)}
         >
           <span />
           <span />
           <span />
         </button>
-        <nav className={`main-nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
+        <nav id="primary-navigation" className={`main-nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
           <a href="/" onClick={() => setMenuOpen(false)}>{t.navigation.home}</a>
           <a href="/circuits" onClick={() => setMenuOpen(false)}>{t.navigation.circuits}</a>
           <a href="/a-propos#about" onClick={() => setMenuOpen(false)}>{t.navigation.about}</a>
           <a href="/a-propos#gallery" onClick={() => setMenuOpen(false)}>{t.navigation.gallery}</a>
-          <a href="/#contact" onClick={() => setMenuOpen(false)}>{t.navigation.contact}</a>
-          <a href="/#activities" onClick={() => setMenuOpen(false)}>{t.navigation.activities}</a>
+          <a href="/contact" onClick={() => setMenuOpen(false)}>{t.navigation.contact}</a>
+          <a href="/activites" onClick={() => setMenuOpen(false)}>{t.navigation.activities}</a>
         </nav>
         <div className="header-actions">
           <button className="language-switcher" type="button" onClick={toggleLanguage}>
             <span>文</span> {language.toUpperCase()} <Icon name="chevron" size={13} />
           </button>
-          <a className="button button-small" href="/#contact">{t.navigation.reserve}</a>
+          <a className="button button-small" href="/reserver">{t.navigation.reserve}</a>
         </div>
       </div>
     </header>

@@ -13,7 +13,7 @@ export function Footer() {
       <div className="container footer-panel">
         <div className="footer-grid">
           <div className="footer-brand">
-            <a className="brand brand-light" href="#top" aria-label="Visit Dassa">
+            <a className="brand brand-light" href="/" aria-label="Visit Dassa">
               <img className="footer-logo" src={logo} alt="Visit Dassa" />
             </a>
             <p>{t.footer.description}</p>

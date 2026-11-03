@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Icon } from '../components/common/Icon'
 import { useLanguage } from '../context/useLanguage'
 import { getTranslation } from '../i18n/translations'
@@ -21,6 +21,15 @@ export function AboutPage() {
   const t = getTranslation(language)
   const [selectedImage, setSelectedImage] = useState(null)
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') setSelectedImage(null)
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [])
+
   return (
     <div className="about-page">
       <section className="about-page-hero">
@@ -31,7 +40,7 @@ export function AboutPage() {
         </div>
       </section>
 
-      <section className="about-story-section">
+      <section className="about-story-section" id="about">
         <div className="container about-story-layout">
           <div className="about-story-heading">
             <p className="eyebrow">{t.aboutPage.storyEyebrow}</p>
@@ -71,10 +80,23 @@ export function AboutPage() {
                 key={image}
                 onClick={() => setSelectedImage(image)}
               >
-                <img src={image} alt={`${t.galleryPage.imageAlt} ${index + 1}`} />
+                <img src={image} alt={`${t.galleryPage.imageAlt} ${index + 1}`} loading="lazy" />
                 <span>{t.galleryPage.view}</span>
               </button>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="cta-section cta-section-gallery">
+        <div className="container">
+          <div className="cta-frame">
+            <div className="cta-content">
+              <p className="eyebrow">{t.cta.title}</p>
+              <h2>{t.cta.title}</h2>
+              <p>{t.cta.text}</p>
+              <a className="button" href="/reserver">{t.cta.button} <Icon name="arrow" size={16} /></a>
+            </div>
           </div>
         </div>
       </section>

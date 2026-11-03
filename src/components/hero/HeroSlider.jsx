@@ -85,7 +85,7 @@ export function HeroSlider({ slides = defaultSlides, labels }) {
         <p className="hero-slide-subtitle">{labels.subtitle}</p>
         <div className="hero-slide-actions">
           <a className="button" href="#circuits">{labels.discover}</a>
-          <a className="button button-outline" href="#contact">{labels.book}</a>
+          <a className="button button-outline" href="/reserver">{labels.book}</a>
         </div>
         <p className="hero-slide-description">{labels.description}</p>
       </div>

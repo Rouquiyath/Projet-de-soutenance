@@ -56,10 +56,10 @@ export function HomePage() {
           <div className="experiences-grid">
             {t.experiences.items.map((experience) => (
               <article className="experience-card" key={experience.title}>
-                <div className="experience-image">
-                  <img src={experience.image} alt="" />
+                <a className="experience-image" href="/circuits" aria-label={`${experience.title} - ${t.experiences.all}`}>
+                  <img src={experience.image} alt={experience.title} loading="lazy" />
                   <span className="experience-badge">{experience.tag}</span>
-                </div>
+                </a>
                 <div className="experience-meta">
                   <span>{experience.duration}</span>
                   <span>{experience.price}</span>
@@ -78,7 +78,7 @@ export function HomePage() {
               <p className="eyebrow">{t.cta.title}</p>
               <h2>{t.cta.title}</h2>
               <p>{t.cta.text}</p>
-              <a className="button" href="#circuits">{t.cta.button} <Icon name="arrow" size={16} /></a>
+              <a className="button" href="/circuits">{t.cta.button} <Icon name="arrow" size={16} /></a>
             </div>
           </div>
         </div>
