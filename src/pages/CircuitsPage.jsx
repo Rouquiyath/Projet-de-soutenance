@@ -32,6 +32,7 @@ export function CircuitsPage() {
     <>
       <section className="catalog-hero">
         <div className="container">
+          <p className="catalog-kicker">VISIT DASSA <span>•</span> {t.catalog.kicker}</p>
           <h1>{t.catalog.title}</h1>
           <p>{t.catalog.subtitle}</p>
         </div>
@@ -40,6 +41,7 @@ export function CircuitsPage() {
       <section className="catalog-section">
         <div className="container">
           <div className="catalog-toolbar">
+            <p className="catalog-result">{circuits.length} {t.catalog.resultLabel}</p>
             <div className="filter-group">
               <label>
                 <span className="sr-only">{t.catalog.category}</span>
@@ -62,7 +64,7 @@ export function CircuitsPage() {
               </label>
             </div>
             <label className="sort-control">
-              <span>{t.catalog.sortBy}</span>
+              <span className="sort-label">{t.catalog.sortBy}</span>
               <select value={sort} onChange={(event) => setSort(event.target.value)}>
                 <option value="default">{t.catalog.defaultSort}</option>
                 <option value="ascending">{t.catalog.priceAscending}</option>
@@ -72,11 +74,12 @@ export function CircuitsPage() {
           </div>
 
           <div className="catalog-grid">
-            {circuits.map((circuit) => (
+            {circuits.map((circuit, index) => (
               <article className="catalog-card" key={circuit.title}>
                 <div className="catalog-card-image">
                   <img src={circuit.image} alt="" />
-                  <span>{circuit.label}</span>
+                  <span className="catalog-card-label">{circuit.label}</span>
+                  <span className="catalog-card-index">{String(index + 1).padStart(2, '0')}</span>
                 </div>
                 <div className="catalog-card-content">
                   <h2>{circuit.title}</h2>
@@ -85,8 +88,8 @@ export function CircuitsPage() {
                     <span><Icon name="clock" size={15} /> {circuit.duration}</span>
                     <strong>{circuit.price} <small>FCFA</small></strong>
                   </div>
-                  <a className="catalog-card-button" href="#contact">
-                    {t.catalog.details}
+                  <a className="catalog-card-button" href="/#contact">
+                    {t.catalog.details} <Icon name="arrow" size={15} />
                   </a>
                 </div>
               </article>

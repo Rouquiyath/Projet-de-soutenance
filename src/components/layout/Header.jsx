@@ -21,7 +21,7 @@ export function Header() {
   return (
     <header className={`site-header${scrolled ? ' is-scrolled' : ''}`}>
       <div className="container header-inner">
-        <a className="brand" href="#top" aria-label="Visit Dassa">
+        <a className="brand" href="/" aria-label="Visit Dassa">
           <img className="brand-logo" src={logo} alt="Visit Dassa" />
         </a>
         <button
@@ -36,18 +36,18 @@ export function Header() {
           <span />
         </button>
         <nav className={`main-nav${menuOpen ? ' is-open' : ''}`} aria-label="Main navigation">
-          <a href="#top" onClick={() => setMenuOpen(false)}>{t.navigation.home}</a>
+          <a href="/" onClick={() => setMenuOpen(false)}>{t.navigation.home}</a>
           <a href="/circuits" onClick={() => setMenuOpen(false)}>{t.navigation.circuits}</a>
-          <a href="#about" onClick={() => setMenuOpen(false)}>{t.navigation.about}</a>
-          <a href="#gallery" onClick={() => setMenuOpen(false)}>{t.navigation.gallery}</a>
-          <a href="#contact" onClick={() => setMenuOpen(false)}>{t.navigation.contact}</a>
-          <a href="#activities" onClick={() => setMenuOpen(false)}>{t.navigation.activities}</a>
+          <a href="/a-propos#about" onClick={() => setMenuOpen(false)}>{t.navigation.about}</a>
+          <a href="/a-propos#gallery" onClick={() => setMenuOpen(false)}>{t.navigation.gallery}</a>
+          <a href="/#contact" onClick={() => setMenuOpen(false)}>{t.navigation.contact}</a>
+          <a href="/#activities" onClick={() => setMenuOpen(false)}>{t.navigation.activities}</a>
         </nav>
         <div className="header-actions">
           <button className="language-switcher" type="button" onClick={toggleLanguage}>
             <span>文</span> {language.toUpperCase()} <Icon name="chevron" size={13} />
           </button>
-          <a className="button button-small" href="#contact">{t.navigation.reserve}</a>
+          <a className="button button-small" href="/#contact">{t.navigation.reserve}</a>
         </div>
       </div>
     </header>
