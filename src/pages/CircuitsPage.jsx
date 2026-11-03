@@ -91,7 +91,7 @@ export function CircuitsPage() {
                     <span><Icon name="clock" size={15} /> {circuit.duration}</span>
                     <strong>{circuit.price} <small>FCFA</small></strong>
                   </div>
-                  <a className="catalog-card-button" href="/reserver">
+                  <a className="catalog-card-button" href={`/circuits/${circuit.id}`}>
                     {t.catalog.details} <Icon name="arrow" size={15} />
                   </a>
                 </div>

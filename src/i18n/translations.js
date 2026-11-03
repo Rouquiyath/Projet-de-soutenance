@@ -1,3 +1,5 @@
+import { getCircuitItems, getFeaturedCircuitItems } from '../data/circuits'
+
 export const translations = {
   fr: {
     navigation: {
@@ -75,6 +77,71 @@ export const translations = {
       imageAlt: 'Instant de vie à Dassa-Zoumé',
       view: 'Voir l’image',
       close: 'Fermer l’image',
+    },
+    detailPage: {
+      descriptionLabel: 'Description',
+      overviewEyebrow: 'L’expérience',
+      overviewTitle: 'Un itinéraire pensé pour vous.',
+      overviewText: 'Partez avec un guide local passionné et prenez le temps de découvrir les paysages, les récits et les rencontres qui donnent son caractère à Dassa-Zoumé.',
+      itineraryTitle: 'Itinéraire',
+      itinerary: [
+        { title: 'Accueil et départ', text: 'Rendez-vous avec votre guide local et présentation du parcours.' },
+        { title: 'Découverte du site', text: 'Explorez les lieux emblématiques au rythme du groupe.' },
+        { title: 'Pause et rencontres', text: 'Prenez le temps d’observer, d’échanger et de profiter du paysage.' },
+        { title: 'Retour', text: 'Bilan de l’expérience et conseils pour poursuivre la découverte.' },
+      ],
+      pointsTitle: 'Points d’intérêt',
+      points: ['Paysages et reliefs de Dassa', 'Histoires et patrimoine local', 'Rencontres avec les acteurs du territoire'],
+      duration: 'Durée',
+      price: 'À partir de',
+      category: 'Type',
+      practicalTitle: 'Informations pratiques',
+      meetingPoint: 'Point de départ',
+      meetingValue: 'Bureau Visit Dassa',
+      difficulty: 'Difficulté',
+      difficultyValue: 'Accessible',
+      group: 'Groupe',
+      groupValue: 'Petit groupe',
+      includedTitle: 'Inclus dans l’expérience',
+      included: ['Guide local certifié', 'Accueil et accompagnement sur place', 'Conseils pratiques avant le départ'],
+      previewTitle: 'Aperçu du parcours',
+      previewText: 'Les images donnent un aperçu de l’univers du circuit. Le parcours final est confirmé avec votre guide.',
+      book: 'Demander une réservation',
+      notFound: 'Circuit introuvable',
+      backToCatalog: 'Retour aux circuits',
+    },
+    faqPage: {
+      kicker: 'QUESTIONS FRÉQUENTES',
+      title: 'Préparer votre découverte de Dassa.',
+      subtitle: 'Les réponses aux questions que nos voyageurs nous posent le plus souvent.',
+      items: [
+        { question: 'Comment réserver une expérience ?', answer: 'Choisissez un circuit, puis envoyez votre demande depuis la page de réservation. Notre équipe locale vous recontacte pour confirmer les détails.' },
+        { question: 'Quels moyens de paiement acceptez-vous ?', answer: 'Les modalités de paiement sont précisées lors de la confirmation de votre demande, selon le circuit choisi et votre situation.' },
+        { question: 'Les circuits sont-ils adaptés aux enfants ?', answer: 'Plusieurs expériences sont accessibles aux familles. Indiquez l’âge des participants dans votre demande afin que nous adaptions le rythme et le parcours.' },
+        { question: 'Que faut-il prévoir pour une randonnée ?', answer: 'Prévoyez des chaussures confortables, de l’eau, une protection solaire et une tenue adaptée à la météo.' },
+        { question: 'Peut-on personnaliser un circuit ?', answer: 'Oui. Notre équipe peut ajuster la durée, le rythme et les étapes selon vos envies et vos contraintes.' },
+        { question: 'Comment modifier ou annuler une demande ?', answer: 'Contactez-nous dès que possible par e-mail ou téléphone. Nous vous indiquerons les options disponibles selon l’état de la réservation.' },
+      ],
+    },
+    legalPages: {
+      legal: {
+        title: 'Mentions légales',
+        intro: 'Les informations légales de Visit Dassa.',
+        sections: [
+          { title: 'Éditeur du site', text: 'Visit Dassa est un projet de découverte touristique consacré à Dassa-Zoumé, au Bénin. Contact : hello@visite-dassa.bj.' },
+          { title: 'Hébergement', text: 'Les informations relatives à l’hébergement du site seront complétées lors de la mise en production.' },
+          { title: 'Propriété intellectuelle', text: 'Les textes, visuels et éléments graphiques présents sur ce site sont réservés à Visit Dassa ou à leurs ayants droit.' },
+        ],
+      },
+      privacy: {
+        title: 'Confidentialité',
+        intro: 'Notre engagement pour une utilisation responsable de vos données.',
+        sections: [
+          { title: 'Données collectées', text: 'Les formulaires peuvent recueillir votre nom, votre adresse e-mail, votre téléphone et les informations nécessaires au traitement de votre demande.' },
+          { title: 'Utilisation', text: 'Ces informations servent uniquement à répondre à vos demandes de contact ou de réservation. Elles ne sont pas vendues à des tiers.' },
+          { title: 'Vos droits', text: 'Vous pouvez demander l’accès, la correction ou la suppression de vos informations en écrivant à hello@visite-dassa.bj.' },
+        ],
+      },
     },
     activitiesPage: {
       kicker: 'À FAIRE À DASSA',
@@ -203,7 +270,7 @@ export const translations = {
         { label: 'À Propos', href: '/a-propos#about' },
         { label: 'Guide Local', href: '/activites' },
         { label: 'Blog Voyage', href: '/a-propos#gallery' },
-        { label: 'FAQ', href: '/contact' },
+        { label: 'FAQ', href: '/faq' },
       ],
       localOffice: 'BUREAU LOCAL',
       phoneLabel: 'TÉLÉPHONE',
@@ -388,6 +455,71 @@ export const translations = {
       view: 'View image',
       close: 'Close image',
     },
+    detailPage: {
+      descriptionLabel: 'Description',
+      overviewEyebrow: 'The experience',
+      overviewTitle: 'An itinerary designed for you.',
+      overviewText: 'Travel with a passionate local guide and take the time to discover the landscapes, stories and encounters that make Dassa-Zoumé unique.',
+      itineraryTitle: 'Itinerary',
+      itinerary: [
+        { title: 'Welcome and departure', text: 'Meet your local guide and review the itinerary.' },
+        { title: 'Discover the site', text: 'Explore the emblematic places at the group’s pace.' },
+        { title: 'Pause and encounters', text: 'Take time to observe, exchange and enjoy the landscape.' },
+        { title: 'Return', text: 'Review the experience and get tips for continuing your discovery.' },
+      ],
+      pointsTitle: 'Highlights',
+      points: ['Dassa landscapes and reliefs', 'Local stories and heritage', 'Encounters with local communities'],
+      duration: 'Duration',
+      price: 'From',
+      category: 'Type',
+      practicalTitle: 'Practical information',
+      meetingPoint: 'Meeting point',
+      meetingValue: 'Visit Dassa office',
+      difficulty: 'Difficulty',
+      difficultyValue: 'Accessible',
+      group: 'Group',
+      groupValue: 'Small group',
+      includedTitle: 'Included in the experience',
+      included: ['Certified local guide', 'Welcome and local support', 'Practical advice before departure'],
+      previewTitle: 'Route preview',
+      previewText: 'These images give a glimpse of the tour. The final route is confirmed with your guide.',
+      book: 'Request a booking',
+      notFound: 'Tour not found',
+      backToCatalog: 'Back to tours',
+    },
+    faqPage: {
+      kicker: 'FREQUENTLY ASKED QUESTIONS',
+      title: 'Prepare your discovery of Dassa.',
+      subtitle: 'Answers to the questions our travellers ask most often.',
+      items: [
+        { question: 'How do I book an experience?', answer: 'Choose a tour and send your request from the booking page. Our local team will contact you to confirm the details.' },
+        { question: 'Which payment methods do you accept?', answer: 'Payment details are shared when your request is confirmed, depending on the selected tour and your situation.' },
+        { question: 'Are the tours suitable for children?', answer: 'Several experiences are family-friendly. Tell us the participants’ ages so we can adapt the pace and route.' },
+        { question: 'What should I bring for a hike?', answer: 'Bring comfortable shoes, water, sun protection and clothing suited to the weather.' },
+        { question: 'Can I customise a tour?', answer: 'Yes. We can adjust the duration, pace and stops according to your wishes and constraints.' },
+        { question: 'How can I change or cancel a request?', answer: 'Contact us as soon as possible by email or phone. We will explain the available options.' },
+      ],
+    },
+    legalPages: {
+      legal: {
+        title: 'Legal notice',
+        intro: 'Legal information about Visit Dassa.',
+        sections: [
+          { title: 'Website publisher', text: 'Visit Dassa is a tourism discovery project dedicated to Dassa-Zoumé, Benin. Contact: hello@visite-dassa.bj.' },
+          { title: 'Hosting', text: 'Hosting information will be completed when the website goes live.' },
+          { title: 'Intellectual property', text: 'The texts, visuals and graphic elements on this website belong to Visit Dassa or their respective rights holders.' },
+        ],
+      },
+      privacy: {
+        title: 'Privacy',
+        intro: 'Our commitment to responsible use of your data.',
+        sections: [
+          { title: 'Data collected', text: 'Forms may collect your name, email address, phone number and information needed to process your request.' },
+          { title: 'Use', text: 'This information is used only to answer contact or booking requests. It is not sold to third parties.' },
+          { title: 'Your rights', text: 'You may request access, correction or deletion of your information by writing to hello@visite-dassa.bj.' },
+        ],
+      },
+    },
     activitiesPage: {
       kicker: 'THINGS TO DO IN DASSA',
       title: 'Experience Dassa beyond the tours.',
@@ -508,7 +640,7 @@ export const translations = {
         { label: 'Home', href: '/' }, { label: 'Our Tours', href: '/circuits' }, { label: 'Heritage', href: '/a-propos#about' }, { label: 'Photo Gallery', href: '/a-propos#gallery' }, { label: 'Activities', href: '/activites' },
       ],
       informationLinks: [
-        { label: 'About us', href: '/a-propos#about' }, { label: 'Local Guide', href: '/activites' }, { label: 'Travel Blog', href: '/a-propos#gallery' }, { label: 'FAQ', href: '/contact' },
+        { label: 'About us', href: '/a-propos#about' }, { label: 'Local Guide', href: '/activites' }, { label: 'Travel Blog', href: '/a-propos#gallery' },         { label: 'FAQ', href: '/faq' },
       ],
       localOffice: 'LOCAL OFFICE',
       phoneLabel: 'PHONE',
@@ -578,5 +710,16 @@ export const translations = {
 }
 
 export function getTranslation(language) {
-  return translations[language]
+  const translation = translations[language]
+  return {
+    ...translation,
+    experiences: {
+      ...translation.experiences,
+      items: getFeaturedCircuitItems(language),
+    },
+    catalog: {
+      ...translation.catalog,
+      items: getCircuitItems(language),
+    },
+  }
 }

@@ -66,8 +66,8 @@ export function Footer() {
           ))}
         </div>
         <div className="footer-legal">
-          <a href="#contact">{t.footer.legal}</a>
-          <a href="#contact">{t.footer.privacy}</a>
+          <a href="/mentions-legales">{t.footer.legal}</a>
+          <a href="/confidentialite">{t.footer.privacy}</a>
         </div>
       </div>
     </footer>

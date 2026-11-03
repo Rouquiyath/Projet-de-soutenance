@@ -41,6 +41,7 @@ const defaultSlides = [
 
 export function HeroSlider({ slides = defaultSlides, labels }) {
   const [items, setItems] = useState(slides)
+  const [isPaused, setIsPaused] = useState(false)
 
   useEffect(() => {
     const images = slides.map((slide) => {
@@ -58,10 +59,19 @@ export function HeroSlider({ slides = defaultSlides, labels }) {
     }, 5000)
 
     return () => window.clearInterval(timerId)
-  }, [])
+  }, [isPaused])
 
   return (
-    <div className="hero-slider">
+    <div
+      className="hero-slider"
+      aria-label="Présentation de Visit Dassa"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocus={() => setIsPaused(true)}
+      onBlur={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false)
+      }}
+    >
       <div className="hero-slider-items">
         {items.map((item, index) => (
           <article

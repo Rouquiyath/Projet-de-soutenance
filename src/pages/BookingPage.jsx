@@ -6,6 +6,7 @@ export function BookingPage() {
   const { language } = useLanguage()
   const t = getTranslation(language)
   const [submitted, setSubmitted] = useState(false)
+  const selectedCircuit = new URLSearchParams(window.location.search).get('circuit')
 
   return (
     <div className="editorial-page booking-page">
@@ -36,7 +37,7 @@ export function BookingPage() {
             </div>
             <div className="form-row">
               <label htmlFor="booking-guests">{t.bookingPage.guests}<input id="booking-guests" required name="guests" type="number" min="1" defaultValue="2" /></label>
-              <label htmlFor="booking-tour">{t.bookingPage.tour}<select id="booking-tour" required name="tour" defaultValue=""><option value="" disabled>{t.bookingPage.tourPlaceholder}</option>{t.circuits.items.map((item) => <option key={item.title} value={item.title}>{item.title}</option>)}</select></label>
+              <label htmlFor="booking-tour">{t.bookingPage.tour}<select id="booking-tour" required name="tour" defaultValue={selectedCircuit || ''}><option value="" disabled>{t.bookingPage.tourPlaceholder}</option>{t.circuits.items.map((item) => <option key={item.id} value={item.id}>{item.title}</option>)}</select></label>
             </div>
             <label htmlFor="booking-message">{t.bookingPage.message}<textarea id="booking-message" name="message" rows="5" placeholder={t.bookingPage.messagePlaceholder} /></label>
             <button className="button" type="submit">{t.bookingPage.submit}</button>
