@@ -25,7 +25,6 @@ export function CircuitDetailPage() {
     <div className="editorial-page circuit-detail-page">
       <section className="detail-hero" style={{ backgroundImage: `linear-gradient(90deg, rgba(1,34,16,.9), rgba(1,34,16,.38)), url("${circuit.image}")` }}>
         <div className="container detail-hero-content">
-          <p className="catalog-kicker">VISIT DASSA <span>•</span> {circuit.label}</p>
           <h1>{circuit.title}</h1>
           <div className="detail-hero-meta">
             <span><Icon name="clock" size={15} /> {circuit.duration}</span>

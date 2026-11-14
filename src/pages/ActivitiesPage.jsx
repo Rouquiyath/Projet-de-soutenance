@@ -10,7 +10,6 @@ export function ActivitiesPage() {
     <div className="editorial-page activities-page">
       <section className="editorial-hero activities-hero">
         <div className="container editorial-hero-content">
-          <p className="catalog-kicker">{t.activitiesPage.kicker}</p>
           <h1>{t.activitiesPage.title}</h1>
           <p>{t.activitiesPage.subtitle}</p>
         </div>

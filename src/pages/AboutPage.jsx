@@ -34,7 +34,6 @@ export function AboutPage() {
     <div className="about-page">
       <section className="about-page-hero">
         <div className="container about-page-hero-content">
-          <p className="hero-slide-kicker">{t.aboutPage.kicker}</p>
           <h1>{t.aboutPage.title}</h1>
           <p>{t.aboutPage.subtitle}</p>
         </div>

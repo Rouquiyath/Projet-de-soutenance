@@ -11,7 +11,6 @@ export function LegalPage() {
     <div className="editorial-page legal-page">
       <section className="editorial-hero legal-hero">
         <div className="container editorial-hero-content">
-          <p className="catalog-kicker">VISIT DASSA</p>
           <h1>{page.title}</h1>
           <p>{page.intro}</p>
         </div>

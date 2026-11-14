@@ -9,7 +9,6 @@ export function FaqPage() {
     <div className="editorial-page faq-page">
       <section className="editorial-hero faq-hero">
         <div className="container editorial-hero-content">
-          <p className="catalog-kicker">{t.faqPage.kicker}</p>
           <h1>{t.faqPage.title}</h1>
           <p>{t.faqPage.subtitle}</p>
         </div>

@@ -32,7 +32,6 @@ export function CircuitsPage() {
     <>
       <section className="catalog-hero">
         <div className="container">
-          <p className="catalog-kicker">VISIT DASSA <span>•</span> {t.catalog.kicker}</p>
           <h1>{t.catalog.title}</h1>
           <p>{t.catalog.subtitle}</p>
         </div>
@@ -62,9 +61,6 @@ export function CircuitsPage() {
                   <option value="3">3 {t.catalog.days}</option>
                 </select>
               </label>
-              <button className="filter-reset" type="button" onClick={() => { setCategory('all'); setDuration('all'); setSort('default') }}>
-                {t.catalog.reset}
-              </button>
             </div>
             <label className="sort-control">
               <span className="sort-label">{t.catalog.sortBy}</span>

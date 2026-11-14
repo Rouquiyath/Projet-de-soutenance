@@ -12,7 +12,6 @@ export function BookingPage() {
     <div className="editorial-page booking-page">
       <section className="editorial-hero booking-hero">
         <div className="container editorial-hero-content">
-          <p className="catalog-kicker">{t.bookingPage.kicker}</p>
           <h1>{t.bookingPage.title}</h1>
           <p>{t.bookingPage.subtitle}</p>
         </div>

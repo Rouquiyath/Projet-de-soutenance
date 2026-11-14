@@ -432,6 +432,8 @@
   width: 58px;
   height: 54px;
   object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: filter .25s ease;
 }
 
 .brand-mark {
@@ -482,6 +484,10 @@
 
 .site-header.is-scrolled .brand {
   color: var(--green-800);
+}
+
+.site-header.is-scrolled .brand-logo {
+  filter: none;
 }
 
 .site-header.is-scrolled .main-nav a,
@@ -680,6 +686,7 @@
   min-width: 220px;
   min-height: 58px;
   padding-inline: 30px;
+  border-radius: 12px;
   box-shadow: 0 12px 28px rgba(0,0,0,.14);
   transition: background .25s ease, border-color .25s ease, box-shadow .25s ease, transform .25s ease;
 }

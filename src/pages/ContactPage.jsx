@@ -11,7 +11,6 @@ export function ContactPage() {
     <div className="editorial-page contact-page">
       <section className="editorial-hero contact-hero">
         <div className="container editorial-hero-content">
-          <p className="catalog-kicker">{t.contactPage.kicker}</p>
           <h1>{t.contactPage.title}</h1>
           <p>{t.contactPage.subtitle}</p>
         </div>
