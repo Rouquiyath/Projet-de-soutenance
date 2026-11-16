@@ -41,7 +41,12 @@ const defaultSlides = [
 
 export function HeroSlider({ slides = defaultSlides, labels }) {
   const [items, setItems] = useState(slides)
-  const [isPaused, setIsPaused] = useState(false)
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(
+    () => window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+  )
+  const [manuallyPaused, setManuallyPaused] = useState(false)
+  const [manuallyStarted, setManuallyStarted] = useState(false)
+  const isPaused = manuallyPaused || (prefersReducedMotion && !manuallyStarted)
 
   useEffect(() => {
     const images = slides.map((slide) => {
@@ -54,23 +59,29 @@ export function HeroSlider({ slides = defaultSlides, labels }) {
   }, [slides])
 
   useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches)
+
+    mediaQuery.addEventListener('change', updatePreference)
+    return () => mediaQuery.removeEventListener('change', updatePreference)
+  }, [])
+
+  useEffect(() => {
+    if (isPaused || items.length < 2) return undefined
+
     const timerId = window.setInterval(() => {
       setItems((current) => [...current.slice(1), current[0]])
     }, 5000)
 
     return () => window.clearInterval(timerId)
-  }, [isPaused])
+  }, [isPaused, items.length])
 
   return (
     <div
       className="hero-slider"
-      aria-label="Présentation de Visit Dassa"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
-      onFocus={() => setIsPaused(true)}
-      onBlur={(event) => {
-        if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false)
-      }}
+      role="region"
+      aria-roledescription={labels.sliderRole}
+      aria-label={labels.sliderLabel}
     >
       <div className="hero-slider-items">
         {items.map((item, index) => (
@@ -90,7 +101,6 @@ export function HeroSlider({ slides = defaultSlides, labels }) {
         ))}
       </div>
       <div className="hero-slide-content">
-       {/* <p className="hero-slide-kicker">VISIT DASSA <span>•</span> BÉNIN</p> */}
         <h1>{labels.titlePrefix} <span>{labels.titleAccent}</span></h1>
         <p className="hero-slide-subtitle">{labels.subtitle}</p>
         <div className="hero-slide-actions">
@@ -99,6 +109,22 @@ export function HeroSlider({ slides = defaultSlides, labels }) {
         </div>
         <p className="hero-slide-description">{labels.description}</p>
       </div>
+      <button
+        className="hero-slider-toggle"
+        type="button"
+        aria-label={isPaused ? labels.resumeSlider : labels.pauseSlider}
+        aria-pressed={isPaused}
+        onClick={() => {
+          if (isPaused) {
+            setManuallyStarted(true)
+            setManuallyPaused(false)
+          } else {
+            setManuallyPaused(true)
+          }
+        }}
+      >
+        <span aria-hidden="true">{isPaused ? '▶' : 'Ⅱ'}</span>
+      </button>
     </div>
   )
 }

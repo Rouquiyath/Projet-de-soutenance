@@ -1,8 +1,8 @@
-import { socialLinks } from '../../data/mockData'
-import { Icon } from '../common/Icon'
 import { useLanguage } from '../../context/useLanguage'
 import { getTranslation } from '../../i18n/translations'
 import logo from '../../assets/Images/Logo.svg'
+
+const currentYear = new Date().getFullYear()
 
 export function Footer() {
   const { language } = useLanguage()
@@ -14,20 +14,20 @@ export function Footer() {
         <div className="footer-grid">
           <div className="footer-brand">
             <a className="brand brand-light" href="/" aria-label="Visit Dassa">
-              <img className="footer-logo" src={logo} alt="Visit Dassa" />
+              <img className="footer-logo" src={logo} alt="" />
             </a>
             <p>{t.footer.description}</p>
           </div>
           <div>
             <h3>{t.footer.discover}</h3>
             <ul className="footer-links numbered-links">
-              {t.footer.discoverLinks.map((link, index) => <li key={link}><span>0{index + 1}</span><a href={link.href}>{link.label}</a></li>)}
+              {t.footer.discoverLinks.map((link, index) => <li key={link.href}><span aria-hidden="true">0{index + 1}</span><a href={link.href}>{link.label}</a></li>)}
             </ul>
           </div>
           <div>
             <h3>{t.footer.information}</h3>
             <ul className="footer-links numbered-links">
-              {t.footer.informationLinks.map((link, index) => <li key={link}><span>0{index + 6}</span><a href={link.href}>{link.label}</a></li>)}
+              {t.footer.informationLinks.map((link, index) => <li key={link.href}><span aria-hidden="true">0{index + 6}</span><a href={link.href}>{link.label}</a></li>)}
             </ul>
           </div>
           <div>
@@ -44,10 +44,7 @@ export function Footer() {
           <div className="newsletter-card">
             <h3>{t.footer.newsletterTitle}</h3>
             <p>{t.footer.newsletterText}</p>
-            <form className="newsletter-form" onSubmit={(event) => event.preventDefault()}>
-              <input type="email" placeholder={t.footer.emailPlaceholder} aria-label={t.footer.emailPlaceholder} />
-              <button type="submit">{t.footer.subscribe}</button>
-            </form>
+            <p className="newsletter-demo-note" role="note">{t.footer.newsletterDemoNotice}</p>
           </div>
         </div>
       </div>
@@ -57,14 +54,7 @@ export function Footer() {
         ))}
       </div>
       <div className="container footer-bottom-bar">
-        <span>{t.footer.rights}</span>
-        <div className="social-links">
-          {socialLinks.map((social) => (
-            <a href={social.href} aria-label={social.label} key={social.label}>
-              <Icon name={social.icon} size={18} />
-            </a>
-          ))}
-        </div>
+        <span>{t.footer.rights.replace('{year}', currentYear)}</span>
         <div className="footer-legal">
           <a href="/mentions-legales">{t.footer.legal}</a>
           <a href="/confidentialite">{t.footer.privacy}</a>

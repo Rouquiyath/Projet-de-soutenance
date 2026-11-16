@@ -5,7 +5,7 @@ const circuits = [
     durationValue: 1,
     priceValue: 15000,
     label: { fr: 'NATURE', en: 'NATURE' },
-    image: 'https://images.unsplash.com/photo-1516026672322-bc52d61a55d5?auto=format&fit=crop&w=1000&q=85',
+    image: '/slider/Images/473079184_612013824633744_2292827569597831335_n.jpg',
     homeImage: '/slider/img1.jpg',
     title: { fr: 'Randonnée sur les collines de Dassa', en: 'Hiking through the Dassa hills' },
     description: {
@@ -15,7 +15,6 @@ const circuits = [
     duration: { fr: '1 journée', en: '1 day' },
     price: { fr: '15.000', en: '15,000' },
     tag: { fr: 'NATURE & DÉCOUVERTE', en: 'NATURE & DISCOVERY' },
-    homeDuration: { fr: 'DURÉE: 4H', en: 'DURATION: 4H' },
   },
   {
     id: 'palais-igbo-idaasha',
@@ -23,7 +22,7 @@ const circuits = [
     durationValue: 2,
     priceValue: 12000,
     label: { fr: 'CULTURE', en: 'CULTURE' },
-    image: 'https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1000&q=85',
+    image: '/slider/Images/IMG_5867.jpeg',
     homeImage: '/slider/img2.jpg',
     title: { fr: 'Le palais royal d’Igbo Idaasha', en: 'The royal palace of Igbo Idaasha' },
     description: {
@@ -33,7 +32,6 @@ const circuits = [
     duration: { fr: '2 jours', en: '2 days' },
     price: { fr: '12.000', en: '12,000' },
     tag: { fr: 'CULTURE & HISTOIRE', en: 'CULTURE & HISTORY' },
-    homeDuration: { fr: 'DURÉE: 1 JOUR', en: 'DURATION: 1 DAY' },
   },
   {
     id: 'centre-okuta',
@@ -41,7 +39,7 @@ const circuits = [
     durationValue: 1,
     priceValue: 8000,
     label: { fr: 'DÉCOUVERTE', en: 'DISCOVERY' },
-    image: 'https://images.unsplash.com/photo-1542810634-71277d95dcbb?auto=format&fit=crop&w=1000&q=85',
+    image: '/slider/Images/475016426_1125577919212533_8409583480296543718_n.jpg',
     homeImage: '/slider/img3.jpg',
     title: { fr: 'Le Centre culturel Okuta', en: 'The Okuta cultural centre' },
     description: {
@@ -51,7 +49,6 @@ const circuits = [
     duration: { fr: '1 journée', en: '1 day' },
     price: { fr: '8.000', en: '8,000' },
     tag: { fr: 'EXPÉRIENCE', en: 'EXPERIENCE' },
-    homeDuration: { fr: 'DURÉE: 2 JOURS', en: 'DURATION: 2 DAYS' },
   },
   {
     id: 'puits-suspendus',
@@ -59,7 +56,7 @@ const circuits = [
     durationValue: 1,
     priceValue: 10000,
     label: { fr: 'CULTURE', en: 'CULTURE' },
-    image: 'https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=85',
+    image: '/slider/Images/IMG_5860.jpeg',
     title: { fr: 'Les puits suspendus', en: 'The suspended wells' },
     description: {
       fr: 'Explorez les puits suspendus de Dassa contenant de l’eau et leurs récits.',
@@ -74,7 +71,7 @@ const circuits = [
     durationValue: 1,
     priceValue: 9000,
     label: { fr: 'NATURE', en: 'NATURE' },
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1000&q=85',
+    image: '/slider/Images/475092973_1125577915879200_6673516319586974302_n.jpg',
     title: { fr: 'Le site Egbakokou', en: 'The Egbakokou site' },
     description: {
       fr: 'La place Egbakokou est un lieu historique et symbolique du royaume d’Igbo-Idaasha.',
@@ -89,7 +86,7 @@ const circuits = [
     durationValue: 3,
     priceValue: 25000,
     label: { fr: 'AVENTURE', en: 'ADVENTURE' },
-    image: 'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85',
+    image: '/slider/Images/475119813_1125578075879184_981893903413840637_n.jpg',
     title: { fr: 'La pierre fendue d’Okéyité / Okuta', en: 'The split rock of Okeyite / Okuta' },
     description: {
       fr: 'Une formation rocheuse emblématique située à Dassa-Zoumé, idéale pour une aventure naturelle.',
@@ -119,7 +116,6 @@ export function getFeaturedCircuitItems(language) {
   return circuits.slice(0, 3).map((circuit) => ({
     ...localizeCircuit(circuit, language),
     image: circuit.homeImage,
-    duration: localizeCircuit({ value: circuit.homeDuration }, language).value,
   }))
 }
 
