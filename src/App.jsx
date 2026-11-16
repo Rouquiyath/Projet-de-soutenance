@@ -10,22 +10,60 @@ import { CircuitDetailPage } from './pages/CircuitDetailPage'
 import { FaqPage } from './pages/FaqPage'
 import { LegalPage } from './pages/LegalPage'
 import { LanguageProvider } from './context/LanguageProvider'
+import { useLanguage } from './context/useLanguage'
+import { getTranslation } from './i18n/translations'
 
-function App() {
-  const isCircuitsPage = window.location.pathname === '/circuits'
-  const isAboutPage = window.location.pathname === '/a-propos'
-  const isActivitiesPage = window.location.pathname === '/activites'
-  const isContactPage = window.location.pathname === '/contact'
-  const isBookingPage = window.location.pathname === '/reserver'
-  const isCircuitDetailPage = /^\/circuits\/[^/]+$/.test(window.location.pathname)
-  const isFaqPage = window.location.pathname === '/faq'
-  const isLegalPage = ['/mentions-legales', '/confidentialite'].includes(window.location.pathname)
+const staticPages = {
+  '/': HomePage,
+  '/circuits': CircuitsPage,
+  '/a-propos': AboutPage,
+  '/activites': ActivitiesPage,
+  '/contact': ContactPage,
+  '/reserver': BookingPage,
+  '/faq': FaqPage,
+  '/mentions-legales': LegalPage,
+  '/confidentialite': LegalPage,
+}
+
+function SkipLink() {
+  const { language } = useLanguage()
+  const t = getTranslation(language)
+
+  return <a className="skip-link" href="#main-content">{t.navigation.skipToContent}</a>
+}
+
+function NotFoundPage() {
+  const { language } = useLanguage()
+  const t = getTranslation(language)
 
   return (
+    <div className="editorial-page">
+      <section className="editorial-hero">
+        <div className="container editorial-hero-content">
+          <h1>{t.notFoundPage.title}</h1>
+          <p>{t.notFoundPage.message}</p>
+          <a className="button" href="/">{t.notFoundPage.backHome}</a>
+        </div>
+      </section>
+    </div>
+  )
+}
+
+function RouteContent() {
+  const pathname = window.location.pathname.replace(/\/+$/, '') || '/'
+  const Page = staticPages[pathname]
+    || (/^\/circuits\/[^/]+$/.test(pathname) ? CircuitDetailPage : NotFoundPage)
+
+  return <Page />
+}
+
+function App() {
+  return (
     <LanguageProvider>
+      <SkipLink />
       <Header />
-      <main>
-        {isCircuitDetailPage ? <CircuitDetailPage /> : isCircuitsPage ? <CircuitsPage /> : isAboutPage ? <AboutPage /> : isActivitiesPage ? <ActivitiesPage /> : isContactPage ? <ContactPage /> : isBookingPage ? <BookingPage /> : isFaqPage ? <FaqPage /> : isLegalPage ? <LegalPage /> : <HomePage />}
+      <main id="main-content" tabIndex="-1">
+        <RouteContent />
       </main>
       <Footer />
     </LanguageProvider>

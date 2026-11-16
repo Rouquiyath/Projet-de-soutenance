@@ -1,8 +1,12 @@
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { LanguageContext } from './languageContext'
 
 export function LanguageProvider({ children }) {
   const [language, setLanguage] = useState('fr')
+
+  useEffect(() => {
+    document.documentElement.lang = language
+  }, [language])
 
   const value = useMemo(
     () => ({

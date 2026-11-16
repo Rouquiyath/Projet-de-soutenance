@@ -50,6 +50,48 @@ export function Icon({ name, size = 20 }) {
         <path d="M9.3 9.5c.2-.5.4-.6.7-.6h.6c.2 0 .4.1.5.4l.6 1.4c.1.2.1.4-.1.6l-.6.6c.5 1 1.3 1.8 2.4 2.3l.7-.6c.2-.2.4-.2.6-.1l1.4.6c.3.1.4.3.3.6-.2.8-.8 1.3-1.6 1.3-2.1-.1-5.6-3.1-6-5.4-.1-.4.1-.8.5-1.1Z" />
       </>
     ),
+    creditCard: (
+      <>
+        <rect x="2" y="5" width="20" height="14" rx="2.5" />
+        <path d="M2 10h20" />
+        <path d="M6 15h5" />
+      </>
+    ),
+    smartphone: (
+      <>
+        <rect x="6" y="2" width="12" height="20" rx="2.5" />
+        <path d="M11 18h2" />
+      </>
+    ),
+    checkBadge: (
+      <>
+        <path d="M12 2.5 4.5 5.5v5.2c0 4.6 3.2 8.8 7.5 10.3 4.3-1.5 7.5-5.7 7.5-10.3V5.5L12 2.5Z" />
+        <path d="m8.5 12 2.5 2.5 4.5-5" />
+      </>
+    ),
+    mtn: (
+      <g>
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="#FFCC00" stroke="none" />
+        <path d="M12 6.5c-2.8 0-5 2.2-5 5v2.2c0 .7.6 1.3 1.3 1.3h7.4c.7 0 1.3-.6 1.3-1.3V11.5c0-2.8-2.2-5-5-5Z" fill="#063b1d" stroke="none" />
+        <path d="M9.5 11.5v-.9a2.5 2.5 0 0 1 5 0v.9" stroke="#FFCC00" stroke-width="1.6" fill="none" stroke-linecap="round" />
+        <circle cx="12" cy="16.4" r="1.1" fill="#FFCC00" stroke="none" />
+      </g>
+    ),
+    moov: (
+      <g>
+        <path d="M12 2.5 21.5 12 12 21.5 2.5 12 12 2.5Z" fill="#E85D2C" stroke="none" />
+        <path d="M8.5 11.5 12 8l3.5 3.5-3.5 3.5-3.5-3.5Z" fill="#ffffff" stroke="none" />
+        <path d="M12 8v7" stroke="#E85D2C" stroke-width="1.6" fill="none" stroke-linecap="round" />
+      </g>
+    ),
+    celtiis: (
+      <g>
+        <rect x="2" y="2" width="20" height="20" rx="5" fill="#1B2A4E" stroke="none" />
+        <path d="M7 14.5c1.6-1.6 4.2-1.6 5.8 0" stroke="#4ADE80" stroke-width="1.8" fill="none" stroke-linecap="round" />
+        <path d="M9.5 17c.8-.8 2.2-.8 3 0" stroke="#ffffff" stroke-width="1.8" fill="none" stroke-linecap="round" />
+        <circle cx="12" cy="9.5" r="1.4" fill="#4ADE80" stroke="none" />
+      </g>
+    ),
   }
 
   return (

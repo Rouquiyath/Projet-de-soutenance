@@ -27,12 +27,21 @@ export function ContactPage() {
               <div><strong>{t.contactPage.hoursLabel}</strong><span>{t.contactPage.hours}</span></div>
             </div>
           </div>
-          <form className="editorial-form" onSubmit={(event) => { event.preventDefault(); setSubmitted(true) }}>
+          <form
+            className="editorial-form"
+            onInput={() => setSubmitted(false)}
+            onSubmit={(event) => {
+              event.preventDefault()
+              event.currentTarget.reset()
+              setSubmitted(true)
+            }}
+          >
             <h2>{t.contactPage.formTitle}</h2>
-            <label htmlFor="contact-name">{t.contactPage.name}<input id="contact-name" required name="name" type="text" autoComplete="name" /></label>
-            <label htmlFor="contact-email">{t.contactPage.email}<input id="contact-email" required name="email" type="email" autoComplete="email" /></label>
-            <label htmlFor="contact-subject">{t.contactPage.subject}<input id="contact-subject" required name="subject" type="text" placeholder={t.contactPage.subjectPlaceholder} /></label>
-            <label htmlFor="contact-message">{t.contactPage.message}<textarea id="contact-message" required name="message" rows="5" placeholder={t.contactPage.messagePlaceholder} /></label>
+            <p className="form-demo-note">{t.contactPage.demoNotice}</p>
+            <label htmlFor="contact-name">{t.contactPage.name}<input id="contact-name" required maxLength="120" name="name" type="text" autoComplete="name" /></label>
+            <label htmlFor="contact-email">{t.contactPage.email}<input id="contact-email" required maxLength="254" name="email" type="email" autoComplete="email" /></label>
+            <label htmlFor="contact-subject">{t.contactPage.subject}<input id="contact-subject" required maxLength="160" name="subject" type="text" placeholder={t.contactPage.subjectPlaceholder} /></label>
+            <label htmlFor="contact-message">{t.contactPage.message}<textarea id="contact-message" required maxLength="3000" name="message" rows="5" placeholder={t.contactPage.messagePlaceholder} /></label>
             <button className="button" type="submit">{t.contactPage.submit}</button>
             {submitted && <p className="form-success" role="status" aria-live="polite">{t.contactPage.success}</p>}
           </form>

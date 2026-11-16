@@ -18,6 +18,10 @@ export function HomePage() {
             discover: t.hero.discover,
             book: t.hero.book,
             description: t.hero.description,
+            sliderLabel: t.hero.sliderLabel,
+            sliderRole: t.hero.sliderRole,
+            pauseSlider: t.hero.pauseSlider,
+            resumeSlider: t.hero.resumeSlider,
           }}
         />
       </section>

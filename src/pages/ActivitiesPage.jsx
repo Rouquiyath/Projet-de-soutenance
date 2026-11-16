@@ -2,6 +2,12 @@ import { Icon } from '../components/common/Icon'
 import { useLanguage } from '../context/useLanguage'
 import { getTranslation } from '../i18n/translations'
 
+const activityImages = [
+  '/slider/Images/IMG_6022.jpeg',
+  '/slider/Images/IMG_6024.jpeg',
+  '/slider/Images/Le gari ou tapioca suivant son lieu de production, est une farine prégélatinisée de grains fins .jpg',
+]
+
 export function ActivitiesPage() {
   const { language } = useLanguage()
   const t = getTranslation(language)
@@ -23,13 +29,17 @@ export function ActivitiesPage() {
             </div>
             <p>{t.activitiesPage.introText}</p>
           </div>
-          <div className="activity-grid">
+          <div className="activity-stories">
             {t.activitiesPage.items.map((item, index) => (
-              <article className="activity-card" key={item.title}>
-                <span className="activity-index">0{index + 1}</span>
-                <span className="activity-icon"><Icon name={item.icon} size={30} /></span>
-                <h3>{item.title}</h3>
-                <p>{item.text}</p>
+              <article className="activity-story" key={item.title}>
+                <figure className="activity-story-image">
+                  <img src={activityImages[index]} alt={item.imageAlt} loading="lazy" />
+                </figure>
+                <div className="activity-story-content">
+                  <span className="activity-story-index">0{index + 1} <span>{item.category}</span></span>
+                  <h3>{item.title}</h3>
+                  <p>{item.text}</p>
+                </div>
               </article>
             ))}
           </div>

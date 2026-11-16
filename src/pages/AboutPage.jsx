@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Icon } from '../components/common/Icon'
 import { useLanguage } from '../context/useLanguage'
 import { getTranslation } from '../i18n/translations'
@@ -20,15 +20,30 @@ export function AboutPage() {
   const { language } = useLanguage()
   const t = getTranslation(language)
   const [selectedImage, setSelectedImage] = useState(null)
+  const lightboxRef = useRef(null)
+  const closeButtonRef = useRef(null)
+  const galleryTriggerRef = useRef(null)
 
   useEffect(() => {
-    const handleKeyDown = (event) => {
-      if (event.key === 'Escape') setSelectedImage(null)
+    if (!selectedImage) return undefined
+
+    const previousFocus = galleryTriggerRef.current
+    lightboxRef.current?.focus()
+
+    return () => previousFocus instanceof HTMLElement && previousFocus.focus()
+  }, [selectedImage])
+
+  function handleLightboxKeyDown(event) {
+    if (event.key === 'Escape') {
+      setSelectedImage(null)
+      return
     }
 
-    window.addEventListener('keydown', handleKeyDown)
-    return () => window.removeEventListener('keydown', handleKeyDown)
-  }, [])
+    if (event.key === 'Tab') {
+      event.preventDefault()
+      closeButtonRef.current?.focus()
+    }
+  }
 
   return (
     <div className="about-page">
@@ -77,7 +92,10 @@ export function AboutPage() {
                 className={`gallery-item gallery-item-${index + 1}`}
                 type="button"
                 key={image}
-                onClick={() => setSelectedImage(image)}
+                onClick={(event) => {
+                  galleryTriggerRef.current = event.currentTarget
+                  setSelectedImage(image)
+                }}
               >
                 <img src={image} alt={`${t.galleryPage.imageAlt} ${index + 1}`} loading="lazy" />
                 <span>{t.galleryPage.view}</span>
@@ -101,8 +119,25 @@ export function AboutPage() {
       </section>
 
       {selectedImage && (
-        <div className="gallery-lightbox" role="dialog" aria-modal="true" aria-label={t.galleryPage.close}>
-          <button className="gallery-lightbox-close" type="button" onClick={() => setSelectedImage(null)} aria-label={t.galleryPage.close}>×</button>
+        <div
+          className="gallery-lightbox"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="gallery-lightbox-title"
+          tabIndex="-1"
+          ref={lightboxRef}
+          onKeyDown={handleLightboxKeyDown}
+        >
+          <h2 id="gallery-lightbox-title" className="sr-only">{t.galleryPage.title}</h2>
+          <button
+            className="gallery-lightbox-close"
+            type="button"
+            onClick={() => setSelectedImage(null)}
+            aria-label={t.galleryPage.close}
+            ref={closeButtonRef}
+          >
+            ×
+          </button>
           <img src={selectedImage} alt={t.galleryPage.imageAlt} />
         </div>
       )}

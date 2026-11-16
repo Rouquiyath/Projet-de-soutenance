@@ -8,7 +8,6 @@ export function CircuitDetailPage() {
   const t = getTranslation(language)
   const circuitId = window.location.pathname.split('/').pop()
   const circuit = getCircuitById(circuitId, language)
-  const circuitIndex = t.catalog.items.findIndex((item) => item.id === circuit.id)
 
   if (!circuit) {
     return (
@@ -20,6 +19,8 @@ export function CircuitDetailPage() {
       </section>
     )
   }
+
+  const circuitIndex = t.catalog.items.findIndex((item) => item.id === circuit.id)
 
   return (
     <div className="editorial-page circuit-detail-page">
