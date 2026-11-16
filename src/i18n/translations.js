@@ -18,7 +18,7 @@ export const translations = {
       discover: 'Découvrir les circuits',
       book: 'Réserver un circuit',
       description:
-        'Partez à la découverte d’une destination unique au cœur du Bénin. Entre paysages grandioses, patrimoine vivant et rencontres chaleureuses, laissez-vous surprendre par Dassa-Zoumé.',
+        'Surnommée la cité des 41 collines, Dassa-Zoumè vous ouvre ses portes pour un voyage immersif au cœur des merveilles naturelles du Bénin. Explorez ces sentiers de randonnée sacrés, vivez nos traditions séculaires et profitez d\'un accueil chaleureux unique.',
     },
     benefits: {
       eyebrow: 'Une expérience inoubliable',
@@ -28,7 +28,7 @@ export const translations = {
         {
           icon: 'mountain',
           title: 'Nature exceptionnelle',
-          text: 'Parcourez les reliefs et les collines sacrées, impressionnantes et riches d’une grande histoire.',
+          text: 'Parcourez les emblématiques 41 collines sacrées, impressionnantes et riches d’une grande histoire.',
         },
         {
           icon: 'culture',
@@ -38,7 +38,7 @@ export const translations = {
         {
           icon: 'heart',
           title: 'Accueil chaleureux',
-          text: 'Faites l’expérience de l’hospitalité béninoise authentique avec des guides locaux passionnés et des communautés villageoises.',
+          text: 'FaFaites l\'expérience de l\'hospitalité béninoise authentique avec nos guides locaux passionnés et les communautés villageoises.ites l’expérience de l’hospitalité béninoise authentique avec des guides locaux passionnés et des communautés villageoises.',
         },
       ],
     },
